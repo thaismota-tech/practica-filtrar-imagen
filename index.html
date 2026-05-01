@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtrar imagen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<script src="js/main.js"></script>    
+    <header id="main-header">
+        <h1>Un universo de posibilidades</h1>
+    </header>
+
+
+    <main>
+    //SECCIÓN DE MIS CATEGORÍAS
+        <section id="categorias">
+            <ul class="lista-categorias">
+                <li data-category="sunny"><h3>Turismo de sol y playa</h3></li>
+                <li data-category="culture"><h3>Turismo cultural</h3></li>
+                <li data-category="religion"><h3>Turismo religioso</h3></li>
+                <li data-category="dark"><h3>Turismo oscuro</h3></li>
+            </ul>
+        </section>
+         
+    //SECCIÓN DE MI GALERÍA DE IMAGENES
+        <section id="galeria" class="hidden">
+            <div class="visor-principal">
+                <img src="" id="imagen-grande" alt="Seleccionada">
+            </div>
+            <div id="contenedor-miniaturas" class="miniaturas">
+                <!-- Las imágenes pequeñas se cargarán aquí con JS -->
+            </div>
+        </section>
+    </main>
+   
+    <footer>
+        <p>Copyright 2026 - Mi Página Web.</p>
+    </footer> 
+
+    <script src="js/main.js"></script> 
 </body>
 </html>
