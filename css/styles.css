@@ -1,34 +1,124 @@
-/* ESTILO BASE PARA QUE LAS MINIATURAS SE VEAN COMO MINIATURAS */
-.miniaturas {
+/*PARA QUE SE VEA IGUAL EN TODOS LOS NAVEGADORES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(122, 158, 170);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap; /* PARA QUE SI HAY MUCHAS, BAJEN A LA SEGUNDA LÍNEA */
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.miniaturas img {
-    width: 100px;
-    height: 70px;
-    object-fit: cover; /* PARA QUE CADA IMAGEN NO SE DEFORME */
+main {
+    flex: 1; 
+}
+
+/* MAQUETACIÓN RESPONSIVE MOBILE FIRST */
+h1 {
+    color: rgb(112, 10, 10);
+    font-size: 2rem; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* MAQUETACIÓN PARA PANTALLAS MÁS GRANDES */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* ESTILOS PARA MIS CATEGORÍAS */
+.lista-categorias {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* MAQUETACIÓN PARA PANTALLAS MÁS GRANDES */
+@media (min-width: 768px) {
+    .lista-categorias {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.lista-categorias li {
     cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: transform 0.2s;
 }
 
-.miniaturas img:hover {
-    border-color: #007bff; /* Un color azul para indicar selección */
+.lista-categorias li:hover {
+    transform: scale(1.05);
 }
 
-/* Imagen grande */
+/* ESTILOS PARA MI GALERÍA DE IMÁGENES */
 #imagen-grande {
     width: 100%;
     max-width: 600px;
     display: block;
     margin: 0 auto;
     border-radius: 8px;
+    background-color: #eee;
 }
 
-/* Clase para ocultar la galería al inicio (opcional) */
-.hidden {
-    display: none;
+.miniaturas {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+.miniaturas img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+    .miniaturas img {
+        width: 120px;
+        height: 90px;
+    }
+}
+
+.miniaturas img:hover {
+    border-color: #007bff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ESTILOS PARA MI FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+footer p {
+    font-family: 'Work Sans', sans-serif; 
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
