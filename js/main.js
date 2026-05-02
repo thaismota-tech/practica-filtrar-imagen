@@ -1,7 +1,4 @@
-/**
- * Objeto que contiene las colecciones de imágenes por categoría.
- * Cada categoría es un Array de Objetos con propiedades src y alt.
- */
+// OBJETO QUE CONTIENE LAS COLECCIONES DE IMÁGENES POR CATEGORÍA CON PROPIEDADES SRC Y ALT:
 const imagenesCategorias = {
     sunny: [
         { src: "assets/pic21.jpg", alt: "Playa con mar azul donde se ven algunos yachts" },
@@ -39,10 +36,16 @@ const imagenGrande = document.getElementById('imagen-grande');
 //Div contenedor donde se inyectan las miniaturas:
 const contenedorMiniaturas = document.getElementById('imagenes-miniaturas');
 
+/**
+ * Muestra la galería de imágenes de la categoría seleccionada.
+ * Elimina las miniaturas anteriores, carga la imagen principal
+ * y genera dinámicamente las miniaturas con sus eventos de click.
+ * @param {string} categoriaSeleccionada - La clave de la categoría (ej: 'sunny', 'culture')
+ */
 function mostrarGaleria(categoriaSeleccionada) {
     const imagenes = imagenesCategorias[categoriaSeleccionada];
 
-// Mostrar la sección quitando "hidden"
+// Mostrar la sección quitando el "hidden" que estaba en mi doc HTML
     galeriaSection.classList.remove('hidden');
 
 // Limpiar miniaturas anteriores (por si el usuario cambia de categoría)
@@ -62,16 +65,17 @@ function mostrarGaleria(categoriaSeleccionada) {
     nuevaMiniatura.addEventListener('click', () => {
         imagenGrande.src = imagen.src;
         imagenGrande.alt = imagen.alt;
-});
+    });
 
     contenedorMiniaturas.appendChild(nuevaMiniatura);
-});
+    });
 }
 
 //ESCUCHAR LOS CLICKS DEL USUARIO EN LOS BOTONES DE MI CATEGORÍA:
 categorias.forEach(boton => {
     boton.addEventListener('click', () => {
+//Recupera el valor del atributo 'data-category' para ejecutar la lógica de filtrado.
         const categoria = boton.getAttribute('data-category');
         mostrarGaleria(categoria);
-});
+    });
 });
