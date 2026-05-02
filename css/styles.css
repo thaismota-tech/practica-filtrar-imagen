@@ -8,7 +8,7 @@
 
 /*sE DEFINE LA FUENTE PRINCIPAL, EL COLOR DEL FONDO Y SE APLICA FLEXBOX PARA QUE EL FOOTER NO SE MUEVA */
 body {
-    background-color: rgb(45, 157, 195);
+    background-color: rgb(30, 92, 114);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding: 20px;
@@ -26,7 +26,7 @@ main {
 
 /* MAQUETACIÓN RESPONSIVE MOBILE FIRST */
 h1 {
-    color: rgb(112, 10, 10);
+    color: rgb(105, 7, 7);
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
@@ -126,13 +126,13 @@ h1 {
 
 .hidden {
     display: none !important;
-    /* DECIR AL NAVEGARDOR QUE IGNORE ESTE ELEMENTO Y NO LO PINTE EN LA PANTALLA Y QUE LO LLEVE COMO IMPORTANTE */
+    /* DECIR AL NAVEGARDOR QUE IGNORE ESTE ELEMENTO Y NO LO PINTE EN LA PANTALLA Y QUE LO LLEVE COMO IMPORTANTE! */
     /* JS ELIMINA ESA CLASE CUANDO TIENE QUE MOSTRAR LA GALERÍA DE IMÁGENES */
 }
 
 /* ESTILOS PARA MI FOOTER */
 footer {
-    background-color: #333;
+    background-color: #302d2d;
     color: white;
     text-align: center;
     padding: 20px 10px;
