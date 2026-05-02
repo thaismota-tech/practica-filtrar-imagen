@@ -1,4 +1,7 @@
-// OBJETO QUE CONTIENE LAS COLECCIONES DE IMÁGENES POR CATEGORÍA CON PROPIEDADES SRC Y ALT:
+/** OBJETO QUE CONTIENE LAS COLECCIONES DE IMÁGENES POR CATEGORÍA CON PROPIEDADES SRC Y ALT
+ * LÓGICA PRINCIPAL DE MI APLICACIÓN: "FILTRAR IMAGEN"
+ * CADA CATEGORÍA CONTIENE UN ARRAY DE OBJETOS CON LAS PROPIEDADES SRC (RUTA DE LA IMAGEN) Y ALT (TEXTO ALTERNATIVO)
+ *  @type {Object.<string, Array.<{src: string, alt: string}>>} */
 const imagenesCategorias = {
     sunny: [
         { src: "assets/pic21.jpg", alt: "Playa con mar azul donde se ven algunos yachts" },
@@ -26,55 +29,68 @@ const imagenesCategorias = {
     ]
 };
 
-// CONECTAR EL DOCUMENTO HTML CON EL JS:
-//Lista de elementos li que actúan como botones de categoría:
+// CONECTAR EL DOCUMENTO HTML CON EL JS (DOM):
+
+/** @type {NodeList} - Lista de elementos li que actúan como botones de categoría */
 const categorias = document.querySelectorAll('.lista-categorias li');
-//Sección principal que contiene la galería:
+
+
+/** @type {HTMLElement} - Sección principal que contiene la galería */
 const galeriaSection = document.getElementById('galeria');
-//Elemento de imagen principal (imagen grande):
+
+
+/** @type {HTMLImageElement} Elemento <img> de imagen principal (imagen grande) */
 const imagenGrande = document.getElementById('imagen-grande');
-//Div contenedor donde se inyectan las miniaturas:
+
+
+/** @type {HTMLElement} - Contenedor donde se inyectan las miniaturas dinámicamente */
 const contenedorMiniaturas = document.getElementById('imagenes-miniaturas');
 
 /**
- * Muestra la galería de imágenes de la categoría seleccionada.
+ * MIS FUNCIONES:
+ * Muestra la galería de imágenes de la categoría seleccionada, al eliminar la clase "hidden".
  * Elimina las miniaturas anteriores, carga la imagen principal
- * y genera dinámicamente las miniaturas con sus eventos de click.
- * @param {string} categoriaSeleccionada - La clave de la categoría (ej: 'sunny', 'culture')
+ * Genera dinámicamente las miniaturas con sus eventos de click
+ * y le asigna un evento click para intercambiarla con la imagen grande principal
+ *  @param {string} categoriaSeleccionada: 'sunny' o 'culture', etc.
  */
+
 function mostrarGaleria(categoriaSeleccionada) {
+    /** @type {Array.<{src: string, alt: string}>} - Array de imágenes de la categoría seleccionada */
     const imagenes = imagenesCategorias[categoriaSeleccionada];
 
-// Mostrar la sección quitando el "hidden" que estaba en mi doc HTML
+    // Mostrar la sección quitando el "hidden" que estaba en mi doc HTML
     galeriaSection.classList.remove('hidden');
 
-// Limpiar miniaturas anteriores (por si el usuario cambia de categoría)
+    // Limpiar miniaturas anteriores (por si el usuario cambia de categoría)
     contenedorMiniaturas.innerHTML = "";
 
-// Cargar la primera imagen como principal
+    // Cargar la primera imagen como principal
     imagenGrande.src = imagenes[0].src;
     imagenGrande.alt = imagenes[0].alt;
 
-// Crear las miniaturas con un bucle
+    // Recorre todas las imágenes de la categoría y crea una miniatura por cada una (FOR EACH)
     imagenes.forEach((imagen) => {
+        /** @type {HTMLImageElement} - Nueva miniatura creada dinámicamente */
         const nuevaMiniatura = document.createElement('img');
         nuevaMiniatura.src = imagen.src;
         nuevaMiniatura.alt = imagen.alt;
 
-// Evento para intercambiar con la grande al hacer click
-    nuevaMiniatura.addEventListener('click', () => {
-        imagenGrande.src = imagen.src;
-        imagenGrande.alt = imagen.alt;
-    });
-
-    contenedorMiniaturas.appendChild(nuevaMiniatura);
+        // Al hacer click en una miniatura, se intercambia con la imagen principal
+        nuevaMiniatura.addEventListener('click', () => {
+            imagenGrande.src = imagen.src;
+            imagenGrande.alt = imagen.alt;
+        });
+        // Añade la miniatura al contenedor en el DOM
+        contenedorMiniaturas.appendChild(nuevaMiniatura);
     });
 }
 
 //ESCUCHAR LOS CLICKS DEL USUARIO EN LOS BOTONES DE MI CATEGORÍA:
 categorias.forEach(boton => {
     boton.addEventListener('click', () => {
-//Recupera el valor del atributo 'data-category' para ejecutar la lógica de filtrado.
+
+        /** @type {string} -Recupera el valor del atributo 'data-category' y llama a mostrarGaleria() con esa categoría */
         const categoria = boton.getAttribute('data-category');
         mostrarGaleria(categoria);
     });

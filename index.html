@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!-- Codificación de caracteres para soportar tildes y ñ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Necesario para el diseño responsive -->
     <title>Filtrar imagen</title>
+    <!-- Preconexión a Google Fonts para mejorar el rendimiento de carga -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Importación de fuentes: Arimo, Google Sans, Montserrat y Work Sans -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Conexión de mi documento HTML a mi Hoja de estilos principal -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+    <!-- CABECERA: contiene el TÍTULO principal de mi aplicación -->
     <header id="main-header">
         <h1>Categorías de Turismo disponibles: </h1>
     </header>
 
-
+    <!-- CONTENIDO PRINCIPAL mi aplicación  -->
     <main>
-<!-- SECCIÓN DE MI CATEGÓRIA-->
+        <!-- SECCIÓN DE MI CATEGÓRIA: muestra los botones de filtrado al usuario-->
         <section id="categorias">
             <ul class="lista-categorias">
+                <!-- Cada <li> actúa como botón de categoría.
+                El atributo data-category identifica la categoría y es leído por JavaScript para filtrar las imágenes -->
                 <li data-category="sunny">Turismo de sol y playa</li>
                 <li data-category="culture">Turismo cultural</li>
                 <li data-category="religion">Turismo religioso</li>
                 <li data-category="dark">Turismo oscuro</li>
             </ul>
         </section>
-         
 
-<!-- SECCIÓN DE MI GALERÍA DE IMÁGENES-->
+
+        <!-- SECCIÓN DE MI GALERÍA DE IMÁGENES: oculta por defecto hasta que el usuario selecciona una categoría-->
         <section id="galeria" class="hidden"> <!-- EL ESTADO INICIAL DE MI APLICACIÓN ES HIDDEN-->
+            <!-- Contenedor del visor principal: muestra la imagen seleccionada en grande -->
             <div class="visor-principal">
-                <img src="" id="imagen-grande" alt="Imagen seleccionada">
+                <img src="" id="imagen-grande" alt="Según la imagen seleccionada">
             </div>
+            <!-- Contenedor de miniaturas: se rellena dinámicamente con JavaScript al seleccionar una categoría -->
             <div id="imagenes-miniaturas" class="miniaturas">
                 <!-- LAS IMÁGENES PEQUEÑAS SE CARGARÁN AQUÍ CON JS -->
             </div>
         </section>
     </main>
-   
+
+    <!-- PIE DE PÁGINA: información de copyright -->
     <footer>
         <p>Copyright 2026 - Mi Página Web.</p>
-    </footer> 
-
-    <script src="js/main.js"></script> 
+    </footer>
+    <!-- Script principal: se carga al final del body para asegurar que el DOM está completamente cargado antes de ejecutar JS -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>
