@@ -26,7 +26,7 @@ main {
 
 /* MAQUETACIÓN RESPONSIVE MOBILE FIRST */
 h1 {
-    color: rgb(105, 7, 7);
+    color: #302d2d;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
@@ -78,7 +78,7 @@ h1 {
 }
 
 /* ESTILOS PARA MI GALERÍA DE IMÁGENES */
-#imagen-grande {
+.grande {
     /* ESTILOS PARA LA IMAGEN GRANDE*/
     width: 100%;
     max-width: 600px;
