@@ -1,0 +1,149 @@
+/*PARA QUE SE VEA IGUAL EN TODOS LOS NAVEGADORES */
+* {
+    margin: 0;
+    padding: 0;
+    /*PARA QUE EL PADDING Y EL BORDER SE INCLUYAN DENTRO DEL ANCHO TOTAL DEL ELEMENTO */
+    box-sizing: border-box;
+}
+
+/*sE DEFINE LA FUENTE PRINCIPAL, EL COLOR DEL FONDO Y SE APLICA FLEXBOX PARA QUE EL FOOTER NO SE MUEVA */
+body {
+    background-color: rgb(132, 212, 241);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* DEJA HEADER, MAIN Y FOOTER EN COLUMNA */
+    min-height: 100vh;
+    /* OCUPA AL MENOS TODA LA ALTURA DE LA PANTALLA */
+}
+
+/*PARA QUE OCUPE TODO EL ESPACIO DISPONIBLE ENTRE HEADER Y FOOTER */
+main {
+    flex: 1;
+}
+
+/* MAQUETACIÓN RESPONSIVE MOBILE FIRST */
+h1 {
+    color: #302d2d;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* MAQUETACIÓN PARA PANTALLAS MÁS GRANDES */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* ESTILOS PARA MIS CATEGORÍAS */
+.lista-categorias {
+    font-size: 1rem;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    /* EN MÓVIL SE MUESTRAN EN COLUMNA */
+    gap: 15px;
+    /* ESPACIO ENTRE CATEGORÍAS */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* MAQUETACIÓN PARA PANTALLAS MÁS GRANDES */
+@media (min-width: 768px) {
+    .lista-categorias {
+        flex-direction: row;
+        /* EN PANTALLAS GRANDES SE MUESTRAN EN FILA */
+        justify-content: center;
+    }
+}
+
+.lista-categorias li {
+    cursor: pointer;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    /*BORDES REDONDEADOS EN LOS BOTONES DE MIS CATEGORÍAS */
+    transition: transform 0.2s;
+    /*ANIMACIÓN SUAVE EN EL HOVER */
+}
+
+.lista-categorias li:hover {
+    transform: scale(1.05);
+    /*EFECTO HOVER */
+}
+
+/* ESTILOS PARA MI GALERÍA DE IMÁGENES */
+.grande {
+    /* ESTILOS PARA LA IMAGEN GRANDE*/
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    object-fit: cover;
+    /* LLENAR EL ESPACIO SIN DEFORMARSE */
+    display: block;
+    margin: 0 auto;
+    /* CENTRADA HORIZONTALMENTE */
+    border-radius: 8px;
+    background-color: #eee;
+}
+
+.miniaturas {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    /* LAS MINIATURAS SALTAN A LA LÍNEA SIGUIENTE SI NO CABEN */
+    justify-content: center;
+}
+
+.miniaturas img {
+    /*SELECCIONA TODOS LOS ELEMENTOS <img> QUE ESTÉN DENTRO DE UN ELEMENTO CON LA CLASE .miniaturas" */
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    /* PARA INDICAR AL USUARIO QUE PUEDE HACER CLICK */
+    border: 2px solid transparent;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+    .miniaturas img {
+        width: 120px;
+        height: 90px;
+    }
+}
+
+.miniaturas img:hover {
+    border-color: #007bff;
+}
+
+.hidden {
+    display: none !important;
+    /* DECIR AL NAVEGARDOR QUE IGNORE ESTE ELEMENTO Y NO LO PINTE EN LA PANTALLA Y QUE LO LLEVE COMO IMPORTANTE! */
+    /* JS ELIMINA ESA CLASE CUANDO TIENE QUE MOSTRAR LA GALERÍA DE IMÁGENES */
+}
+
+/* ESTILOS PARA MI FOOTER */
+footer {
+    background-color: #302d2d;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+footer p {
+    font-family: 'Work Sans', sans-serif;
+    /* FUENTE SECUNDARIA PARA MI FOOTER */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    /* ESPACIO ENTRE LETRAS PARA QUE SE LEA MEJOR POR EL USUARIO */
+}
