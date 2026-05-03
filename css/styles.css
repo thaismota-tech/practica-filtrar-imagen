@@ -8,7 +8,7 @@
 
 /*sE DEFINE LA FUENTE PRINCIPAL, EL COLOR DEL FONDO Y SE APLICA FLEXBOX PARA QUE EL FOOTER NO SE MUEVA */
 body {
-    background-color: rgb(30, 92, 114);
+    background-color: rgb(132, 212, 241);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     padding: 20px;
